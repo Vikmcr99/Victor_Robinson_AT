@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const state = {
     comentarios: []
 };
@@ -11,7 +10,6 @@ const getters = {
 
 const actions = {
     
-    //iniciando o store
     getComentarios({ commit }) {
         axios.get(
             "https://jsonplaceholder.typicode.com/comments"
