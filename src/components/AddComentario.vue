@@ -1,17 +1,16 @@
 <template>
    <div class="container">
-        <h3>Deixe seu comentário</h3>
+        <br>
+        <h3><b>Faça um comentário:</b></h3>
         
         <form @submit.prevent="onSubmit">
             <div class="form-group">
-            <label for="name">Nome:</label>
-            <input class="form-control" type="text" id="name" v-model="add_comentario.name" placeholder="Insira seu nome..." required>
-            <label for="email">E-Mail:</label>
-            <input class="form-control" type="email" id="email" v-model="add_comentario.email" placeholder="Insira seu E-Mail..." required>
-            <label for="body">Comentário:</label>
-            <textarea class="form-control" rows="3" type="textarea" id="body" v-model="add_comentario.body" placeholder="Deixe seu comentário..." required></textarea>
-            <br>
-            <input type="submit" value="Submit" class="btn btn-dark"> <router-link to="/Comentarios" class="btn btn-dark">Comentários</router-link> <router-link to="/" class="btn btn-dark">Home</router-link>
+            <div><h3>Nome:</h3></div>
+            <input class="form-control" type="text" id="name" v-model="add_comentario.name">
+            <div><h3>Mensagem:</h3></div>
+            <textarea class="form-control" rows="6" type="textarea" id="coment" v-model="add_comentario.coment"></textarea>
+            <div><input type="submit" value="Enviar"></div>
+            
             </div>
         </form>
         </div>
@@ -20,7 +19,7 @@
 
 <script>
 //importando os Actions de comentario.js
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
     name: "AddComentario",
@@ -28,19 +27,48 @@ export default {
         return {
             add_comentario : {
                 name: "",
-                email: "", 
-                body: ""
+                coment: ""
             }
         };
     },
 
     methods: {
-        ...mapActions(["addComentario"]),
+        ...mapActions(["addComentario", "getComentarios", "deleteComentario"]),
         onSubmit() {
             console.log("testando submit")
             this.addComentario(this.add_comentario);
-            alert("Comentário Adicionado com sucesso")
+            alert("Comentário Adicionado!")
+            
         }
+    },
+    
+    
+    computed: mapGetters(["allComentarios"]),
+    created() {
+        this.getComentarios();
     }
 };    
 </script>
+
+<style>
+form {
+  display: block;
+}
+input[type="text"],input[type="textarea"] {
+  width: 100%;
+  flex: 10;
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  outline: 0;
+}
+input[type="submit"] {
+  flex: 2;
+  background: rgb(51, 54, 54);
+  border: 1px solid rgb(255, 255, 255);
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+}
+</style>

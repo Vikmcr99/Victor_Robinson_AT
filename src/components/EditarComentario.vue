@@ -1,17 +1,15 @@
 <template>
     <div class="container">
         <br>
-        <h5> Editando o Comentário </h5>
+        <h5> Edição do comentário </h5>
         <form @submit.prevent="onSubmit">
             <div class="form-group">
             <label for="name">Nome:</label>
-            <input class="form-control" type="text" id="name" v-model="add_comentario.name" placeholder="Insira seu nome..." required>
-            <label for="email">E-Mail:</label>
-            <input class="form-control" type="email" id="email" v-model="add_comentario.email" placeholder="Insira seu E-Mail..." required>
-            <label for="body">Comentário:</label>
-            <textarea class="form-control" rows="3" type="textarea" id="body" v-model="add_comentario.body" placeholder="Deixe seu comentário..." required></textarea>
+            <input class="form-control" type="text" id="name" v-model="add_comentario.name">
+            <label for="coment">Mensagem:</label>
+            <textarea class="form-control" rows="3" type="textarea" id="coment" v-model="add_comentario.coment"></textarea>
             <br>
-            <input type="submit" value="Submit" class="btn btn-dark"> 
+            <input type="submit" value="Enviar" class="btn btn-dark"> 
             </div>
         </form>
         </div>
@@ -27,8 +25,7 @@ export default {
             id:this.$route.params.id,
             add_comentario : {
                 name: "",
-                email: "",
-                body: ""
+                coment: ""
             }
         }
     },
@@ -40,7 +37,7 @@ export default {
         ...mapActions(["updateComentario"]),
         onSubmit() {
             this.updateComentario(this.add_comentario);
-            alert("Dados alterados com sucesso")
+            alert("As alterações foram feitas!")
         }
     }
     

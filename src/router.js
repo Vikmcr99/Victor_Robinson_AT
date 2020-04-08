@@ -1,29 +1,25 @@
-// arquivo de configuração das rotas da aplicação
-
-//importando componentes
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Main from './components/Main';
+import Home from './components/Home';
 import AddComentario from './components/AddComentario';
 import Comentarios from './components/Comentarios';
 import DetalheComentario from './components/DetalheComentario';
 import EditarComentario from './components/EditarComentario';
+import notfound from './components/notfound.vue';
 
 Vue.use(VueRouter);
 
 export default new VueRouter({
     mode: 'history',
-    //definindo as rotas
     
-    routes: [
-    // path -> O caminho do browser que será utilizado pela rota e com isso será renderizado o componente que informarmos no campo "component".
-    // name -> Um nome apenas para referência.
-    // component -> Um componente que será renderizado na tela, repare que no Vue, uma tela também é um componente.
-        {
-            path:'/',
-            name:'main',
-            component: Main
-        },
+    
+    routes: [   
+    {
+        path:'/',
+        name:'home',
+        component: Home
+    },
+        
         {
             path:'/addcomentario',
             name:'addcomentario',
@@ -46,6 +42,13 @@ export default new VueRouter({
             name:'comentarios',
             component: Comentarios
         },
+
+        {
+            path: '*',
+            //name: 'notfound',
+            component: notfound
+          }
+      
     ]
 
 });

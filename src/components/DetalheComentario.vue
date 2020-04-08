@@ -1,14 +1,15 @@
 <template>
 
     <div class="container">
-        <h1>Detalhe do Comentário</h1>
+        <br>
+        <h1>Detalhes da Mensagem</h1>
         
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ id }} - {{ comentarioById(id).name }}</h5>
-				<h6 class="card-subtitle mb-2 text-muted">{{ comentarioById(id).email }}</h6>
-                <p class="card-text">{{ comentarioById(id).body }}</p>
-                <router-link tag="button" :to="{ name: 'comentarios' }" class="btn btn-dark">Voltar pra listagem</router-link> <button @click="editar" class="btn btn-dark">Editar Comentário</button>
+                <p class="card-text">{{ comentarioById(id).coment }}</p>
+                <button @click="editar" class="btn btn-dark" style="margin-right: 15px; width:10em">Editar</button>
+                <router-link tag="button" :to="{ name: 'comentarios' }" class="btn btn-dark" style="width: 10em">Voltar</router-link>
                 <router-view></router-view>
             </div>
         </div>

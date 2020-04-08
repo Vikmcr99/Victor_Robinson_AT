@@ -1,25 +1,22 @@
 <template>
-    
-    
-    <div class="container">
+
+    <div class="container" id="comentarios">
         <div>
         <AddComentario/>
         </div>
-        <h3 class="textocentro">Mural de Comentários</h3>
+        <h3 class="textocentro"> <b>Todas as Mensagens:</b></h3>
         <div v-for="comentario in allComentarios" :key="comentario.id">
         
 
             <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ comentario.name }}</h5>
-                <p class="card-text">{{ comentario.body }}</p>
-                <!-- <a href="#" class="card-link">Editar Comentário</a> -->
-                <router-link :to="{name: 'detalheComentario', params: { id: comentario.id} }" class="btn btn-dark">Mais Detalhes</router-link> <button @click="deleteComentario(comentario.id)" class="btn btn-dark">Remover Comentário</button>
+                <p class="card-text">{{ comentario.coment }}</p>
+                <router-link :to="{name: 'detalheComentario', params: { id: comentario.id} }" class="btn btn-dark" style="margin-right: 15px;">Exibir Mensagem</router-link> 
+                <button @click="deleteComentario(comentario.id)" class="btn btn-dark" style="width: 10em">Deletar</button>
             </div>
             </div>
             <br>
-
-
         </div>
     </div>
     
@@ -30,7 +27,6 @@
 import { mapGetters, mapActions } from "vuex";
 //importando o "component"/pagina Add Comentários para que possa ser exibida na pagina dos comentários tbm.
 import AddComentario from "./AddComentario"
-
 export default {
     name: "Comentarios",
     methods: {
@@ -44,3 +40,6 @@ export default {
 };
 </script>    
 
+<style>
+
+</style>

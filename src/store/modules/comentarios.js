@@ -11,7 +11,7 @@ const getters = {
 
 const actions = {
     
-    //inicializando o store
+    //iniciando o store
     getComentarios({ commit }) {
         axios.get(
             "https://jsonplaceholder.typicode.com/comments"
@@ -26,8 +26,7 @@ const actions = {
             "postId": 1,
             "Id": new_index,
             "name": new_comentario.name,
-            "email": new_comentario.email,
-            "body": new_comentario.body,
+            "coment": new_comentario.coment,
         }
         commit('addComentario', response);
     },
