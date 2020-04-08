@@ -18,7 +18,7 @@
 </template>
 
 <script>
-//importando os Actions de comentario.js
+
 import { mapGetters, mapActions } from "vuex";
 
 export default {

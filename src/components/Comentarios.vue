@@ -23,9 +23,7 @@
 </template>
 
 <script>
-//importando os Getters e os Actions criados em comentarios.js
 import { mapGetters, mapActions } from "vuex";
-//importando o "component"/pagina Add Comentários para que possa ser exibida na pagina dos comentários tbm.
 import AddComentario from "./AddComentario"
 export default {
     name: "Comentarios",
